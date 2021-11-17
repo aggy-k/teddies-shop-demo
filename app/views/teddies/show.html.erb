@@ -1,0 +1,25 @@
+<div class="w-full flex justify-center mb-8">
+  <div class="w-5/6 lg:w-1/2">
+    <h1 class="text-6xl lg:text-xl font-bold font-mono">
+      <%= @teddy.name %>
+    </h1>
+
+    <div class="w-full mt-4">
+      <%= image_tag @teddy.photo_url, alt: @teddy.name, class: "w-full object-cover" %>
+    </div>
+
+    <div class="mt-4">
+      <p class="font-bold">Description</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequuntur reprehenderit eaque autem, fugit, quaerat dolores perspiciatis esse, neque assumenda explicabo. Aperiam deleniti commodi amet fugiat tempore accusantium sit dolorem?</p>
+    </div>
+
+    <div class="mt-4 flex items-center justify-between">
+      <p>Amount: <%= humanized_money_with_symbol(@teddy.price) %></p>
+
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'teddy_id', @teddy.id %>
+        <%= submit_tag 'Purchase', class: 'cursor-pointer px-4 py-2 border rounded bg-indigo-600 hover:bg-indigo-400 text-white' %>
+      <% end %>
+    </div>
+  </div>
+</div>

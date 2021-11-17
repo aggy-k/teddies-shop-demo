@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="font-mono text-6xl lg:text-2xl font-bold my-3">Teddies</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-3">
+    <% @teddies.each do |teddy| %>
+      <div class="w-full border rounded-xl shadow-lg ">
+        <%= image_tag(teddy.photo_url, class: "object-cover w-full h-96 lg:h-64 rounded-t-xl") %>
+        <div class="flex flex-col justify-center p-4 text-xl lg:text-base">
+          <h3><%= link_to teddy.name, teddy_path(teddy) %></h3>
+          <p>Amount: <%= humanized_money_with_symbol(teddy.price) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
